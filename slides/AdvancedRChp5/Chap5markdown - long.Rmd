@@ -26,30 +26,58 @@ mono_accent(
 ### Welcome R-Ladies Netherlands Book-Club!
 
 
-- This is collaborative effort between RLadies Nijmengen, Rotterdam, Den Bosch, Amsterdam, Utrecht.
+- R-Ladies is a global organization to promote gender diversity in the R community via meetups, mentorship in a safe and inclusive environment. 
+
+<img src="RLadies_logo.jpeg" width="200" height="200" style="float: center" />
+<br>
+--
+
+- **R-Ladies Netherlands Book-Club** is a collaborative effort between RLadies-NL chapters in Nijmengen, Rotterdam, Den Bosch, Amsterdam, Utrecht.
+<br>
+
+<img src="bookclub.png" width="200" height="200" style="float:right" />
 
 --
 
-- We meet every 2 weeks to go through one of the chapters and run through related exercises. 
+- We meet every **2 weeks** to go through one of the chapters of Hadley Wickam _Advanced R_, and run through  exercises to put the concepts into practice.  
 
---
 
-- Please use the HackMD (shared) to present yourself, ask questions and see your breakout room
+---
 
---
-
-- We split in breakout rooms after the presentation, and we return to the main jitsi link after 30 min.
-
---
-<br><br>
-
---
-- Solutions to the exercises from _Advanced R_ can be found in the (Advanced R Solutions Book)[https://advanced-r-solutions.rbind.io/index.html]  
-
-- The R4DS book club repo has a Q&A section.https://github.com/r4ds/bookclub-Advanced_R
+### Today's Session!
 
 <br>
+
+- Starts with a  30-45 min presentation
+
+- Breakout session - we **split** into breakout rooms to practice exercises.
+
+--
+
+- Please use the **HackMD** (shared in email and in chat) to present yourself, ask overarching questions, and to find your break out room.
+
+- Use the chat to participate in the discussion during the presentation and your breakout session. 
+
+- The Bookclub repository has also been shared is also made available. 
+
+--
+
+- Any questions about this format?
+
+---
+### Resources
+
+- Solutions to the exercises from _Advanced R_ can be found in the (Advanced R Solutions Book)[https://advanced-r-solutions.rbind.io/index.html]  
+
+- The R4DS book club repo has a Q&A section  section.https://github.com/r4ds/bookclub-Advanced_R
+
+<br>
+<br>
 - We are always looking for new speakers! If you are interested, please sign up to present a chapter at https://rladiesnl.github.io/book_club/
+
+
+![Excited_gif](https://media.giphy.com/media/31lPv5L3aIvTi/giphy.gif)
+
 
 ---
 
@@ -62,24 +90,27 @@ class: center, middle
 
 ## Outline
 
-Note that this is a relatively short chapter, but we will go through many examples and exercises. 
-
 The outline for today is: 
 
   - What do we mean by control flows?
 
 --
 
-  - Choices
-
+  - 1. Choices
+    
+    - if()
+    - ifelse()
+    - switch()
+    
 --
 
-  - Loops
-
---
-
-  - Applications 
-
+  - 2. Loops
+    - for loops
+    - break
+    - next
+    - `repeat()` and `while()`
+      
+  
 --
 
 - Breakout Sessions
@@ -88,9 +119,8 @@ The outline for today is:
 ---
 ### Let's get to it! 
 
-<center>
+
 ![](https://media.giphy.com/media/LHZyixOnHwDDy/giphy.gif)
-</center>
 
 
 ---
@@ -99,11 +129,22 @@ The outline for today is:
 
 --
 
-- Controls flows are a fundamental concept in computer programming  
+- Controls flows are a **fundamental concept** in computer programming  
 
 --
 
 - Allow us to express the **order** and the **way** a command of execution components are put together to perform a specific task.
+
+--
+
+- - Control flow commands allow your R code to choose between different options, in other words, **make decisions**. 
+
+-- 
+
+- Control flows are used to: 
+  * Execute a action using **certain conditions** --> ifelse()
+  * Execute an action **repetitively** --> for loop
+  * **manipulate a sequential flow** --> breaking code
 
 --
 
@@ -112,45 +153,39 @@ The outline for today is:
   2. Selection/choices (if, unless)
   3. Iteration (for, while, repeat...)
 
+
 ---
-### 1. What do we mean by control flows
-
--- 
-
-- Control flow commands allow your R code to choose between different options, in other words, **make decisions**. 
+### Examples of control flows: 
 
 --
 
-- Control flows are used to execute a action using **certain conditions**, or execute an action **repetitively**, or **manipulate a sequential flow** by breaking code under certain circumstances.
-
----
-### 1. What do we mean by control flows
-
-Examples of control flows: 
-
-
-+ Anyone want to volunteer and share an example, or  recent experience where you produced some R code with control flows. Why did you need to use control flow command? 
+1. Convert a list of daily recorded air temperatures  from Fahrenheit to Celcius.
 
 --
 
-1. Perform an mathematical algorithm on a series on numbers - say convert a the temperatures recorded at every hour of the day from F to C.
+2. Produce a function but skips all input values that aren't numeric.
 
-2. Produce a function but skip all values that aren't numeric. 
+--
 
 3. Prevent an iterative function from performing if the input value is `NA`.
 
+-- 
+
++ Now, in the chat box, volunteer and share an example, of a recent use of control flows commands.  
+
 
 
 ---
-## 1. What do we mean by control flows
+
+### 1. What do we mean by control flows
+
+<br>
 
 - In Hadley Wickam's book, this chapter looks at **choices**  and **loops** 
 
-<br><br>
+<br>
 
 ![](https://media.giphy.com/media/OmAdpbVnAAWJO/giphy.gif)
-
----
 
 ---
 
@@ -172,11 +207,12 @@ Examples of control flows:
 - Using `else`, an optional other  action can be evaluated if the condition is `FALSE.`
 
 --
+
 <br>
 - in R, we use `{}`  to compound the action statements.
 
 ---
-### 2. Choices
+### School Grade Example
 
 Example given using a function to translate to letter grades:
 
@@ -201,44 +237,90 @@ grade <- function(x) {
 
 ```
 
-If student gets a above 90, received A. 
+If student gets a above 90, received A.
 If student gets above 80, recieves B.
 If student gets above 50, receives C.
-If the grade does not meet this above conditions student receives F.
+If the grade does not meet this above conditions, student receives F.
+
 --
+
 *Note the order of conditional statements: we cannot have the first conditional statement after the second one, in the way that it is written.* 
 
 ---
-### 2.0 Choices 
+### `Else` in R-Optional 
 
-Using `else`: 
+Choice statements don't always need an `else`. `if` invisibly returns `NULL` if the condition is `FALSE`.
 
-Choice statements don't always need an `else`. `if` invisibly returns NULL if the conditional is False.
+```{r eval = F}
 
-```{r }
+x = 3
 
-## code chunk to add
+if(x == 3){
+  
+  print('yes!')
+  
+  }
+
+```
+--
+
+```{r echo = F}
+
+x = 3
+
+if(x == 3){
+  
+  print('yes!')
+  
+  }
+
 ```
 
-- The output here will be blank
-
-and many functions drop NULL so a function that has this condition within works perfectly
+--
 
 ```{r}
 
-greet <- function(name, birthday = FALSE) {
-  paste0(
-    "Hi ", name,
-    if (birthday) " and HAPPY BIRTHDAY"
-  )
-}
-greet("Maria", FALSE)
-#> [1] "Hi Maria"
-greet("Jaime", TRUE)
-#> [1] "Hi Jaime and HAPPY BIRTHDAY"
+x = 3
+
+if(x == 1){
+  
+  print('yes!')
+  
+  }
 
 ```
 
+---
+
+### `Else` in R-Optional 
+
+```{r }
+
+## greetings is a function that concatenates words depending on condition:
+
+greetings <- function(name, birthday = FALSE) {
+  
+  paste0("Hi ", name,
+         if (birthday) " and HAPPY BIRTHDAY")
+
+}
+```
+
+-- 
+
+```{r echo = T}
+
+greetings("Maria", FALSE)
+
+```
+
+--
+
+```{r echo = T}
+
+greetings("Jaime", TRUE)
+
+```
 
 ---
 

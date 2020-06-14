@@ -350,7 +350,7 @@ can manipulate them just like other objects.
 
 <td style="text-align:left;">
 
-Sign up\!
+Alejandra Hernandez Segura
 
 </td>
 
@@ -368,7 +368,7 @@ Utrecht
 
 <td style="text-align:left;">
 
-NA
+[Meetup link](https://www.meetup.com/rladies-utrecht/events/271184555/)
 
 </td>
 

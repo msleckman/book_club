@@ -37,7 +37,7 @@ library(knitr)
 - We meet every 2 weeks to go through a chapter 
 --
 
-- Use the [HackMD](https://hackmd.io/@Alejandra/r13GR7FjL) to present yourself, ask questions and see your breakout room 
+- Use the [HackMD](https://hackmd.io/fzgOycJzSgGcelsdk5ZKNw?both) to present yourself, ask questions and see your breakout room 
 --
 
 - We split in breakout rooms after the presentation, and we return to the main jitsi link after 20 min  
